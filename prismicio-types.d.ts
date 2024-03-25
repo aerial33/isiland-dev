@@ -4,72 +4,97 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type IsilandDocumentDataSlicesSlice = never;
-
 /**
- * Content for Isiland documents
+ * Item in *Settings → Navigation*
  */
-interface IsilandDocumentData {
+export interface SettingsDocumentDataNavigationItem {
   /**
-   * Slice Zone field in *Isiland*
+   * Link field in *Settings → Navigation*
    *
-   * - **Field Type**: Slice Zone
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: isiland.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
+   * - **API ID Path**: settings.navigation[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  slices: prismic.SliceZone<IsilandDocumentDataSlicesSlice> /**
-   * Meta Description field in *Isiland*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: isiland.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
+  link: prismic.LinkField;
 
   /**
-   * Meta Image field in *Isiland*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: isiland.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Isiland*
+   * Label field in *Settings → Navigation*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: isiland.meta_title
-   * - **Tab**: SEO & Metadata
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.navigation[].label
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  meta_title: prismic.KeyTextField;
+  label: prismic.KeyTextField;
 }
 
 /**
- * Isiland document from Prismic
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Site Title field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  site_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.meta_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * OG Image field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.og_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  og_image: prismic.ImageField<never>;
+
+  /**
+   * Navigation field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.navigation[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
+}
+
+/**
+ * Settings document from Prismic
  *
- * - **API ID**: `isiland`
- * - **Repeatable**: `true`
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type IsilandDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<IsilandDocumentData>,
-    "isiland",
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
     Lang
   >;
 
-export type AllDocumentTypes = IsilandDocument;
+export type AllDocumentTypes = SettingsDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -81,9 +106,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      IsilandDocument,
-      IsilandDocumentData,
-      IsilandDocumentDataSlicesSlice,
+      SettingsDocument,
+      SettingsDocumentData,
+      SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
     };
   }

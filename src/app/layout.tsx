@@ -36,7 +36,6 @@ export default function RootLayout({
 	return (
 		<html lang='fr' className={clsx(poppins.variable)}>
 			<body>
-				<Header />
 				{children}
 				<Footer />
 			</body>

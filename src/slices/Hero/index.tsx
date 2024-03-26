@@ -20,7 +20,7 @@ const components: JSXMapSerializer = {
 		</Heading>
 	),
 	paragraph: ({ children }) => (
-		<p className='text-2xl text-gray-700 font-poppins max-w-md'>{children}</p>
+		<p className='text-2xl font-poppins max-w-md'>{children}</p>
 	),
 }
 
@@ -37,15 +37,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 		<Bounded
 			data-slice-type={slice.slice_type}
 			data-slice-variation={slice.variation}
+			className='min-h-screen bg-hero-background bg-cover bg-no-repeat bg-center relative text-white'
 		>
-			<div className='grid grid-cols-1 place-items-center text-center'>
+			<div className='grid grid-cols-1 text-white place-items-center text-center'>
 				<PrismicRichText
 					field={slice.primary.info_text}
 					components={{
 						paragraph: ({ children }) => (
-							<p className='text-sm md:text-xl text-gray-700 font-poppins'>
-								{children}
-							</p>
+							<p className='text-sm md:text-xl'>{children}</p>
 						),
 					}}
 				/>

@@ -8,7 +8,7 @@ const Header = async () => {
 	const settings = await client.getSingle('settings')
 
 	return (
-		<header>
+		<header className='min-h-screen bg-hero-background bg-cover bg-center relative text-white'>
 			<Link href='/'>{settings.data.site_title}</Link>
 			<nav>
 				<ul>

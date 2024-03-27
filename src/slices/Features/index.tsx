@@ -11,7 +11,7 @@ import { TbTools } from 'react-icons/tb'
 
 const components: JSXMapSerializer = {
 	heading2: ({ children }) => (
-		<Heading as='h2' size='md' className='mb-12 text-secondary font-semibold'>
+		<Heading as='h2' size='md' className=' text-secondary font-semibold'>
 			{children}
 		</Heading>
 	),
@@ -49,8 +49,14 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
 			data-slice-variation={slice.variation}
 		>
 			<PrismicRichText components={components} field={slice.primary.heading} />
+			<div className='mb-12'>
+				<PrismicRichText
+					components={components}
+					field={slice.primary.introduction}
+				/>
+			</div>
 
-			<div className='grid sm:grid-cols-2 lg:grid-cols-3 max-w-5xl gap-x-8 gap-y-12 mx-auto sm:place-items-start place-items-center'>
+			<div className='grid sm:grid-cols-2 lg:grid-cols-3  gap-x-8 gap-y-12 mx-auto sm:place-items-start place-items-center'>
 				{slice.items.map((item, index) => (
 					<div
 						key={index}

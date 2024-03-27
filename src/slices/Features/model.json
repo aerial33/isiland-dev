@@ -20,6 +20,15 @@
             "allowTargetBlank": true,
             "single": "heading2,strong"
           }
+        },
+        "introduction": {
+          "type": "StructuredText",
+          "config": {
+            "label": "introduction",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
         }
       },
       "items": {

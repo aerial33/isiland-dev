@@ -13,6 +13,17 @@
 						}
 					}
 				]
+			},
+			"introduction": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Quis tempor culpa deserunt aute occaecat. Nulla aute est voluptate consectetur quis cupidatat ut tempor consequat mollit Lorem Lorem cupidatat."
+						}
+					}
+				]
 			}
 		},
 		"items": [

@@ -19,6 +19,7 @@ const config: Config = {
 				primary: '#A1A536',
 				secondary: '#706668',
 				'accent-yellow': '#F9C304',
+				body: '#A0A0A0',
 				'coral-red': '#FF6452',
 				'light-gray': '#DEDEDE',
 				'intense-gray': '#D0D0D0',

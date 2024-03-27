@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import clsx from 'clsx'
 import './globals.css'
-import { createClient } from '@/prismicio'
+import { createClient, repositoryName } from '@/prismicio'
+import { PrismicPreview } from '@prismicio/next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -36,8 +37,10 @@ export default function RootLayout({
 	return (
 		<html lang='fr' className={clsx(poppins.variable)}>
 			<body>
+				{/* <Header /> */}
 				{children}
 				<Footer />
+				<PrismicPreview repositoryName={repositoryName} />
 			</body>
 		</html>
 	)

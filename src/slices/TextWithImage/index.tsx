@@ -37,6 +37,7 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
 		<Bounded
 			data-slice-type={slice.slice_type}
 			data-slice-variation={slice.variation}
+			className='grid gap-8  place-content-center h-screen'
 		>
 			<div
 				className={clsx(

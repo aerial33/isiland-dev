@@ -36,8 +36,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='fr' className={clsx(poppins.variable)}>
-			<body>
-				{/* <Header /> */}
+			<body className='relative'>
+				<Header />
 				{children}
 				<Footer />
 				<PrismicPreview repositoryName={repositoryName} />

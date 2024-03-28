@@ -1,5 +1,4 @@
 import { Content } from '@prismicio/client'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import {
 	JSXMapSerializer,
 	PrismicRichText,
@@ -8,14 +7,13 @@ import {
 import Bounded from '@/components/Bounded'
 import Button from '@/components/Button'
 import Heading from '@/components/Heading'
-import Header from '@/components/Header'
 
 const components: JSXMapSerializer = {
 	heading1: ({ children }) => (
 		<Heading
 			as='h1'
 			size='xl'
-			className='md:mb-8 mb-4 mt-2 first:mt-0 last:mb-0'
+			className='md:mb-8 mb-4 mt-2 first:mt-0 last:mb-0 text-balance glass-container'
 		>
 			{children}
 		</Heading>
@@ -41,8 +39,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 			className='min-h-screen bg-hero-background bg-cover bg-no-repeat bg-bottom relative text-white'
 		>
 			<div className='h-screen grid'>
-				<Header />
-				<div className='flex flex-col text-white'>
+				<div className='flex flex-col text-white justify-center gap-4'>
 					<PrismicRichText
 						field={slice.primary.info_text}
 						components={{

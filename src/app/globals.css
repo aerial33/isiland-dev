@@ -8,10 +8,14 @@
 	--background-end-rgb: 255, 255, 255;
 }
 
-body {
-	color: rgb(var(--foreground-rgb));
+.glass-container {
+	position: relative;
 }
 
+.glass-container::before {
+	@apply absolute -inset-[10px] -z-10 border border-slate-100/20 bg-slate-200/10 backdrop-blur-md;
+	content: '';
+}
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;

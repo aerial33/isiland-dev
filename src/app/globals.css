@@ -16,6 +16,13 @@
 	@apply absolute -inset-[10px] -z-10 border border-slate-100/20 bg-slate-200/10 backdrop-blur-md;
 	content: '';
 }
+
+.btn {
+	@apply block w-fit bg-secondary hover:bg-obsidian  duration-200 ease-in-out text-white font-semibold font-poppins py-3 px-12 text-lg capitalize tracking-wider;
+}
+.btn-primary {
+	@apply block w-fit bg-white hover:bg-white/90  duration-200 ease-in-out text-obsidian font-semibold  py-3 px-12 text-lg capitalize tracking-wider;
+}
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;

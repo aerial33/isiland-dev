@@ -18,6 +18,7 @@ const config: Config = {
 			colors: {
 				primary: '#A1A536',
 				secondary: '#706668',
+				obsidian: '#2A2E38',
 				'accent-yellow': '#F9C304',
 				body: '#A0A0A0',
 				'coral-red': '#FF6452',

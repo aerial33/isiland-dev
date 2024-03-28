@@ -38,6 +38,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 			data-slice-variation={slice.variation}
 			className='min-h-screen bg-hero-background bg-cover bg-no-repeat bg-bottom relative text-white'
 		>
+			<div className='glow absolute z-10 aspect-square w-full max-w-xl rounded-full bg-blue-100/20 blur-3xl filter' />
 			<div className='h-screen grid'>
 				<div className='flex flex-col text-white justify-center gap-4'>
 					<PrismicRichText
@@ -53,8 +54,13 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 						components={components}
 					/>
 					<PrismicRichText field={slice.primary.body} components={components} />
-					<Button field={slice.primary.button_link} className=' my-8 mb:my-10'>
+					<Button
+						field={slice.primary.button_link}
+						className='btn my-8 mb:my-10'
+					>
 						{slice.primary.button_text}
+
+						<span className='ml-2 text-2xl'>&#8594;</span>
 					</Button>
 				</div>
 			</div>

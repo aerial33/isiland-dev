@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | ShowcaseSlice
   | TextWithImageSlice
   | FeaturesSlice
   | HeroSlice;
@@ -83,7 +84,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = TextWithImageSlice;
+type PageDocumentDataSlicesSlice = ShowcaseSlice | TextWithImageSlice;
 
 /**
  * Content for Page documents
@@ -410,6 +411,61 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *SegmentPicker → Items*
+ */
+export interface SegmentPickerSliceDefaultItem {
+  /**
+   * chiffre cle field in *SegmentPicker → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: segment_picker.items[].chiffre_cle
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  chiffre_cle: prismic.NumberField;
+
+  /**
+   * chiffre text field in *SegmentPicker → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: segment_picker.items[].chiffre_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  chiffre_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for SegmentPicker Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SegmentPickerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<SegmentPickerSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *SegmentPicker*
+ */
+type SegmentPickerSliceVariation = SegmentPickerSliceDefault;
+
+/**
+ * SegmentPicker Shared Slice
+ *
+ * - **API ID**: `segment_picker`
+ * - **Description**: SegmentPicker
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SegmentPickerSlice = prismic.SharedSlice<
+  "segment_picker",
+  SegmentPickerSliceVariation
+>;
 
 /**
  * Primary content in *Showcase → Primary*
@@ -837,6 +893,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      SegmentPickerSlice,
+      SegmentPickerSliceDefaultItem,
+      SegmentPickerSliceVariation,
+      SegmentPickerSliceDefault,
       ShowcaseSlice,
       ShowcaseSliceDefaultPrimary,
       ShowcaseSliceReversePrimary,

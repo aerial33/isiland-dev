@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"chiffre_cle",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "46",
+							"type": "Number"
+						}
+					],
+					[
+						"chiffre_text",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Duis ex ipsum pariatur eiusmod non culpa amet commodo."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

@@ -58,7 +58,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
 					</div>
 
 					<Button field={slice.primary.link} className='btn mt-8'>
-						{slice.primary.button_text || 'Learn more'}
+						{slice.primary.button_text || 'En Savoir Plus'}
 					</Button>
 				</div>
 				<PrismicNextImage

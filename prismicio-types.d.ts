@@ -5,6 +5,8 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | SegmentPickerSlice
+  | SectionProductSlice
   | ShowcaseSlice
   | TextWithImageSlice
   | FeaturesSlice
@@ -411,6 +413,106 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *SectionProduct → Primary*
+ */
+export interface SectionProductSliceDefaultPrimary {
+  /**
+   * Heading field in *SectionProduct → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section_product.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * subheading field in *SectionProduct → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section_product.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.RichTextField;
+
+  /**
+   * description field in *SectionProduct → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section_product.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *SectionProduct → Items*
+ */
+export interface SectionProductSliceDefaultItem {
+  /**
+   * image field in *SectionProduct → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section_product.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * button field in *SectionProduct → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section_product.items[].button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+
+  /**
+   * label field in *SectionProduct → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section_product.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  label: prismic.LinkField;
+}
+
+/**
+ * Default variation for SectionProduct Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SectionProductSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SectionProductSliceDefaultPrimary>,
+  Simplify<SectionProductSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *SectionProduct*
+ */
+type SectionProductSliceVariation = SectionProductSliceDefault;
+
+/**
+ * SectionProduct Shared Slice
+ *
+ * - **API ID**: `section_product`
+ * - **Description**: SectionProduct
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SectionProductSlice = prismic.SharedSlice<
+  "section_product",
+  SectionProductSliceVariation
+>;
 
 /**
  * Primary content in *SegmentPicker → Items*
@@ -893,6 +995,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      SectionProductSlice,
+      SectionProductSliceDefaultPrimary,
+      SectionProductSliceDefaultItem,
+      SectionProductSliceVariation,
+      SectionProductSliceDefault,
       SegmentPickerSlice,
       SegmentPickerSliceDefaultItem,
       SegmentPickerSliceVariation,

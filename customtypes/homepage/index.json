@@ -18,6 +18,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "segment_picker": {
+              "type": "SharedSlice"
+            },
+            "section_product": {
+              "type": "SharedSlice"
+            },
             "showcase": {
               "type": "SharedSlice"
             },

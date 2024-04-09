@@ -18,6 +18,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "sub_menu_item": {
+              "type": "SharedSlice"
+            },
+            "navigation_item": {
+              "type": "SharedSlice"
+            },
+            "heading": {
+              "type": "SharedSlice"
+            },
             "segment_picker": {
               "type": "SharedSlice"
             },

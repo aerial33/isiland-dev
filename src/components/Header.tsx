@@ -1,7 +1,7 @@
 import { createClient } from '@/prismicio'
 
 import Bounded from '@/components/Bounded'
-import NavBar from '@/components/NavBar'
+import { FlyoutNav } from './NavBar'
 
 const Header = async () => {
 	const client = createClient()
@@ -9,12 +9,9 @@ const Header = async () => {
 	const settings = await client.getSingle('settings')
 
 	return (
-		<Bounded
-			as='header'
-			className='py-8 mb-8 absolute top-0 z-10 w-full text-white'
-		>
-			<NavBar settings={settings} />
-		</Bounded>
+		<header className='py-4 mb-8 md:mb-44 fixed top-0 z-10'>
+			<FlyoutNav />
+		</header>
 	)
 }
 export default Header

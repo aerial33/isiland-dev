@@ -38,7 +38,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 			data-slice-variation={slice.variation}
 			className='min-h-screen bg-hero-background bg-cover bg-no-repeat bg-bottom relative text-white'
 		>
-			<div className='glow absolute z-10 aspect-square w-full max-w-xl rounded-full bg-blue-100/20 blur-3xl filter' />
 			<div className='h-screen grid'>
 				<div className='flex flex-col text-white justify-center gap-4'>
 					<PrismicRichText

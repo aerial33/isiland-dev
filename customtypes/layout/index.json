@@ -1,0 +1,30 @@
+{
+  "format": "custom",
+  "id": "layout",
+  "label": "layout",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Header": {
+      "contact_cta_label": {
+        "type": "Text",
+        "config": {
+          "label": "Contact CTA label",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "navigation_item": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Footer": {}
+  }
+}

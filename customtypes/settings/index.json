@@ -48,6 +48,14 @@
                 "label": "Label",
                 "placeholder": ""
               }
+            },
+            "name": {
+              "type": "Link",
+              "config": {
+                "label": "name",
+                "select": "document",
+                "customtypes": ["sub_menu"]
+              }
             }
           }
         }

@@ -8,10 +8,11 @@ import Bounded from '@/components/Bounded'
 import Heading from '@/components/Heading'
 import { FaHandSparkles, FaClipboardList } from 'react-icons/fa'
 import { TbTools } from 'react-icons/tb'
+import Image from 'next/image'
 
 const components: JSXMapSerializer = {
 	heading2: ({ children }) => (
-		<Heading as='h2' size='md' className=' text-secondary font-semibold'>
+		<Heading as='h2' size='lg' className=' text-obsidian font-semibold mt-16'>
 			{children}
 		</Heading>
 	),
@@ -19,13 +20,13 @@ const components: JSXMapSerializer = {
 		<Heading
 			as='h3'
 			size='sm'
-			className='mb-4 text-left text-secondary font-medium'
+			className='mb-4 text-left text-obsidian font-medium'
 		>
 			{children}
 		</Heading>
 	),
 	paragraph: ({ children }) => (
-		<p className='text-base  text-slate-600 text-left'>{children}</p>
+		<p className='text-base  text-secondary text-left'>{children}</p>
 	),
 }
 
@@ -47,16 +48,26 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
 		<Bounded
 			data-slice-type={slice.slice_type}
 			data-slice-variation={slice.variation}
+			className='relative'
 		>
+			<div>
+				<Image
+					src={'/assets/images/switch-container.png'}
+					alt='design'
+					width={400}
+					height={450}
+					className='absolute -top-10 right-5 -z-10'
+				/>
+			</div>
 			<PrismicRichText components={components} field={slice.primary.heading} />
-			<div className='mb-12'>
+			<div className='mb-12 max-w-lg text-balance mt-4'>
 				<PrismicRichText
 					components={components}
 					field={slice.primary.introduction}
 				/>
 			</div>
 
-			<div className='grid sm:grid-cols-2 lg:grid-cols-3  gap-x-8 gap-y-12 mx-auto sm:place-items-start place-items-center'>
+			<div className='grid sm:grid-cols-2 lg:grid-cols-3  gap-x-12 gap-y-12 mx-auto sm:place-items-start place-items-center'>
 				{slice.items.map((item, index) => (
 					<div
 						key={index}

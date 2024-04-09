@@ -66,7 +66,10 @@ const SectionProduct = ({ slice }: SectionProductProps): JSX.Element => {
 							index === 3 || index === 6 ? 'md:col-span-3' : ''
 						)}
 					>
-						<PrismicNextImage field={item.image} className='object-cover' />
+						<PrismicNextImage
+							field={item.image}
+							className='object-cover h-[420px] w-full'
+						/>
 
 						<Button
 							field={item.label}

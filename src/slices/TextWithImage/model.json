@@ -30,14 +30,6 @@
             "multi": "paragraph,strong,em"
           }
         },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "button": {
           "type": "Text",
           "config": {
@@ -46,7 +38,16 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "images": {
+          "type": "Image",
+          "config": {
+            "label": "images",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
     },
     {
       "id": "imageRight",
@@ -82,14 +83,6 @@
             "thumbnails": []
           }
         },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "button": {
           "type": "Text",
           "config": {
@@ -98,7 +91,16 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "images": {
+          "type": "Image",
+          "config": {
+            "label": "images",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
     },
     {
       "id": "withTwoImages",
@@ -124,14 +126,6 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em"
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
           }
         },
         "button": {
@@ -173,7 +167,16 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "images": {
+          "type": "Image",
+          "config": {
+            "label": "images",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
     }
   ]
 }

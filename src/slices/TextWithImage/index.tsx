@@ -1,13 +1,16 @@
+'use client'
 import { Content } from '@prismicio/client'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { motion } from 'framer-motion'
 import {
 	JSXMapSerializer,
 	PrismicRichText,
 	SliceComponentProps,
 } from '@prismicio/react'
-import Bounded from '@/components/Bounded'
 import Heading from '@/components/Heading'
 import { PrismicNextImage } from '@prismicio/next'
 import clsx from 'clsx'
+import { useState } from 'react'
 
 const components: JSXMapSerializer = {
 	heading2: ({ children }) => (
@@ -33,6 +36,10 @@ export type TextWithImageProps = SliceComponentProps<Content.TextWithImageSlice>
  * Component for "TextWithImage" Slices.
  */
 const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
+	const [idx, setIdx] = useState(0)
+
+	const images = slice.items.filter((item) => item.images)
+
 	return (
 		<section
 			data-slice-type={slice.slice_type}
@@ -46,17 +53,49 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
 						slice.variation === 'imageRight' && 'md:order-2'
 					)}
 				>
-					<PrismicNextImage
-						field={slice.primary.image}
-						className='rounded-none h-full w-full bg-cover overflow-hidden'
-					/>
-					<div
-						className={clsx(
-							'btn-primary absolute bottom-0 right-0',
-							slice.variation === 'imageRight' && 'left-0'
-						)}
-					>
-						{slice.primary.button} <span className='ml-20'>&#8594;</span>
+					<div className='relative overflow-hidden'>
+						<motion.div
+							dragConstraints={{ left: 0, right: 0 }}
+							animate={{ translateX: `-${idx * 100}%` }}
+							className='flex cursor-grab items-center active:cursor-grab'
+						>
+							{slice.items.map((item, index) => (
+								<PrismicNextImage
+									field={item.images}
+									key={index}
+									className='w-full aspect-video object-cover bg-neutral-800 shrink-0'
+								/>
+							))}
+						</motion.div>
+						<div
+							className={clsx(
+								'absolute bottom-0 right-0',
+								slice.variation === 'imageRight' && 'left-0'
+							)}
+						>
+							<div className='flex'>
+								<button
+									onClick={() => {
+										setIdx((pv) => (pv === 0 ? images.length - 1 : pv - 1))
+									}}
+									className='btn-primary'
+								>
+									<span className='font-extraboldbold  flex text-3xl'>
+										<FiChevronLeft className='hover:-translate-x-1 transition' />
+									</span>
+								</button>
+								<button
+									onClick={() => {
+										setIdx((pr) => (pr === images.length - 1 ? 0 : pr + 1))
+									}}
+									className='btn-primary'
+								>
+									<span className='font-extraboldbold  flex text-3xl'>
+										<FiChevronRight className='hover:translate-x-1 transition' />
+									</span>
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div className='w-full p-11 lg:w-2/5 '>

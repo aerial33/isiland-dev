@@ -1246,16 +1246,6 @@ export interface TextWithImageSliceDefaultPrimary {
   body: prismic.RichTextField;
 
   /**
-   * Image field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Button field in *TextWithImage → Primary*
    *
    * - **Field Type**: Text
@@ -1264,6 +1254,21 @@ export interface TextWithImageSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TextWithImage → Items*
+ */
+export interface TextWithImageSliceDefaultItem {
+  /**
+   * images field in *TextWithImage → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.items[].images
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  images: prismic.ImageField<never>;
 }
 
 /**
@@ -1276,7 +1281,7 @@ export interface TextWithImageSliceDefaultPrimary {
 export type TextWithImageSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<TextWithImageSliceDefaultPrimary>,
-  never
+  Simplify<TextWithImageSliceDefaultItem>
 >;
 
 /**
@@ -1314,16 +1319,6 @@ export interface TextWithImageSliceImageRightPrimary {
   image_under_text: prismic.ImageField<never>;
 
   /**
-   * Image field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Button field in *TextWithImage → Primary*
    *
    * - **Field Type**: Text
@@ -1332,6 +1327,21 @@ export interface TextWithImageSliceImageRightPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TextWithImage → Items*
+ */
+export interface TextWithImageSliceImageRightItem {
+  /**
+   * images field in *TextWithImage → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.items[].images
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  images: prismic.ImageField<never>;
 }
 
 /**
@@ -1344,7 +1354,7 @@ export interface TextWithImageSliceImageRightPrimary {
 export type TextWithImageSliceImageRight = prismic.SharedSliceVariation<
   "imageRight",
   Simplify<TextWithImageSliceImageRightPrimary>,
-  never
+  Simplify<TextWithImageSliceImageRightItem>
 >;
 
 /**
@@ -1370,16 +1380,6 @@ export interface TextWithImageSliceWithTwoImagesPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   body: prismic.RichTextField;
-
-  /**
-   * Image field in *TextWithImage → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
 
   /**
    * Button field in *TextWithImage → Primary*
@@ -1423,6 +1423,21 @@ export interface TextWithImageSliceWithTwoImagesPrimary {
 }
 
 /**
+ * Primary content in *TextWithImage → Items*
+ */
+export interface TextWithImageSliceWithTwoImagesItem {
+  /**
+   * images field in *TextWithImage → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.items[].images
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  images: prismic.ImageField<never>;
+}
+
+/**
  * withTwoImages variation for TextWithImage Slice
  *
  * - **API ID**: `withTwoImages`
@@ -1432,7 +1447,7 @@ export interface TextWithImageSliceWithTwoImagesPrimary {
 export type TextWithImageSliceWithTwoImages = prismic.SharedSliceVariation<
   "withTwoImages",
   Simplify<TextWithImageSliceWithTwoImagesPrimary>,
-  never
+  Simplify<TextWithImageSliceWithTwoImagesItem>
 >;
 
 /**
@@ -1529,8 +1544,11 @@ declare module "@prismicio/client" {
       SubMenuItemSliceBox,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
+      TextWithImageSliceDefaultItem,
       TextWithImageSliceImageRightPrimary,
+      TextWithImageSliceImageRightItem,
       TextWithImageSliceWithTwoImagesPrimary,
+      TextWithImageSliceWithTwoImagesItem,
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
       TextWithImageSliceImageRight,

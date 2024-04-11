@@ -1350,7 +1350,7 @@ export type TextWithImageSliceImageRight = prismic.SharedSliceVariation<
 /**
  * Primary content in *TextWithImage → Primary*
  */
-export interface TextWithImageSliceTextCenterPrimary {
+export interface TextWithImageSliceWithTwoImagesPrimary {
   /**
    * Heading field in *TextWithImage → Primary*
    *
@@ -1382,26 +1382,56 @@ export interface TextWithImageSliceTextCenterPrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * Image left field in *TextWithImage → Primary*
+   * Button field in *TextWithImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+
+  /**
+   * leftImage field in *TextWithImage → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.primary.image_left
+   * - **API ID Path**: text_with_image.primary.leftimage
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image_left: prismic.ImageField<never>;
+  leftimage: prismic.ImageField<never>;
+
+  /**
+   * rightImage field in *TextWithImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.rightimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  rightimage: prismic.ImageField<never>;
+
+  /**
+   * textCenter field in *TextWithImage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.textcenter
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  textcenter: prismic.RichTextField;
 }
 
 /**
- * Text center variation for TextWithImage Slice
+ * withTwoImages variation for TextWithImage Slice
  *
- * - **API ID**: `textCenter`
+ * - **API ID**: `withTwoImages`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type TextWithImageSliceTextCenter = prismic.SharedSliceVariation<
-  "textCenter",
-  Simplify<TextWithImageSliceTextCenterPrimary>,
+export type TextWithImageSliceWithTwoImages = prismic.SharedSliceVariation<
+  "withTwoImages",
+  Simplify<TextWithImageSliceWithTwoImagesPrimary>,
   never
 >;
 
@@ -1411,7 +1441,7 @@ export type TextWithImageSliceTextCenter = prismic.SharedSliceVariation<
 type TextWithImageSliceVariation =
   | TextWithImageSliceDefault
   | TextWithImageSliceImageRight
-  | TextWithImageSliceTextCenter;
+  | TextWithImageSliceWithTwoImages;
 
 /**
  * TextWithImage Shared Slice
@@ -1500,11 +1530,11 @@ declare module "@prismicio/client" {
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceImageRightPrimary,
-      TextWithImageSliceTextCenterPrimary,
+      TextWithImageSliceWithTwoImagesPrimary,
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
       TextWithImageSliceImageRight,
-      TextWithImageSliceTextCenter,
+      TextWithImageSliceWithTwoImages,
     };
   }
 }

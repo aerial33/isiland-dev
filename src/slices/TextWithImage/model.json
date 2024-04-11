@@ -101,8 +101,8 @@
       "items": {}
     },
     {
-      "id": "textCenter",
-      "name": "Text center",
+      "id": "withTwoImages",
+      "name": "withTwoImages",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -134,12 +134,42 @@
             "thumbnails": []
           }
         },
-        "image_left": {
+        "button": {
+          "type": "Text",
+          "config": {
+            "label": "Button",
+            "placeholder": ""
+          }
+        },
+        "leftimage": {
           "type": "Image",
           "config": {
-            "label": "Image left",
-            "constraint": {},
+            "label": "leftImage",
+            "constraint": {
+              "width": 380,
+              "height": 270
+            },
             "thumbnails": []
+          }
+        },
+        "rightimage": {
+          "type": "Image",
+          "config": {
+            "label": "rightImage",
+            "constraint": {
+              "width": 380,
+              "height": 270
+            },
+            "thumbnails": []
+          }
+        },
+        "textcenter": {
+          "type": "StructuredText",
+          "config": {
+            "label": "textCenter",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3,paragraph,strong,em"
           }
         }
       },

@@ -13,14 +13,14 @@ const components: JSXMapSerializer = {
 	heading2: ({ children }) => (
 		<Heading
 			as='h2'
-			size='xl'
-			className='md:mb-8 mb-4 mt-2 first:mt-0 last:mb-0'
+			size='lg'
+			className='md:mb-8 mb-4 mt-4 lg:first:mt-0 last:mb-0 text-balance'
 		>
 			{children}
 		</Heading>
 	),
 	paragraph: ({ children }) => (
-		<p className='text-2xl text-body max-w-md'>{children}</p>
+		<p className='text-xl text-body max-w-lg text-balance'>{children}</p>
 	),
 }
 
@@ -34,30 +34,32 @@ export type TextWithImageProps = SliceComponentProps<Content.TextWithImageSlice>
  */
 const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
 	return (
-		<Bounded
+		<section
 			data-slice-type={slice.slice_type}
 			data-slice-variation={slice.variation}
-			className='grid gap-8  place-content-center h-screen'
+			className='grid'
 		>
-			<div
-				className={clsx(
-					'grid gap-8 md:grid-cols-2 place-items-center',
-					slice.variation === 'textCenter' && 'md:grid-cols-3'
-				)}
-			>
-				<PrismicNextImage
-					field={slice.primary.image}
-					className={clsx(
-						'rounded-none',
-						slice.variation === 'imageRight' && 'md:order-2'
-					)}
-				/>
+			<div className='flex items-center flex-col lg:flex-row'>
 				<div
 					className={clsx(
-						'grid gap-4 self-start',
-						slice.variation === 'textCenter' && 'self-center'
+						'relative w-full h-full lg:w-3/5',
+						slice.variation === 'imageRight' && 'md:order-2'
 					)}
 				>
+					<PrismicNextImage
+						field={slice.primary.image}
+						className='rounded-none h-full w-full bg-cover overflow-hidden'
+					/>
+					<div
+						className={clsx(
+							'btn-primary absolute bottom-0 right-0',
+							slice.variation === 'imageRight' && 'left-0'
+						)}
+					>
+						{slice.primary.button} <span className='ml-20'>&#8594;</span>
+					</div>
+				</div>
+				<div className='w-full p-11 lg:w-2/5 '>
 					<PrismicRichText
 						field={slice.primary.heading}
 						components={components}
@@ -65,11 +67,17 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
 
 					<PrismicRichText field={slice.primary.body} components={components} />
 				</div>
-				{slice.variation === 'textCenter' && (
-					<PrismicNextImage field={slice.primary.image_left} />
-				)}
 			</div>
-		</Bounded>
+			{slice.variation === 'withTwoImages' && (
+				<div className=' mt-8 lg:mt-0 flex flex-col lg:flex-row gap-8 justify-between w-full'>
+					<PrismicNextImage field={slice.primary.leftimage} />
+					<div className='self-center max-w-xl text-lg text-body'>
+						<PrismicRichText field={slice.primary.textcenter} />
+					</div>
+					<PrismicNextImage field={slice.primary.rightimage} />
+				</div>
+			)}
+		</section>
 	)
 }
 

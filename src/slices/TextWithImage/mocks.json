@@ -9,8 +9,16 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Metal"
-						}
+							"text": "Les Aménagements Sur Mesure",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 27
+								}
+							]
+						},
+						"direction": "ltr"
 					}
 				]
 			},
@@ -20,31 +28,33 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Cupidatat velit duis sint aliquip."
-						}
+							"text": "We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
 			"image": {
 				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
-					"width": 4000,
-					"height": 6000
+					"id": "3z_61bnbFhM",
+					"url": "https://images.unsplash.com/photo-1616593918824-4fef16054381?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8aW50ZXJpb3JzfGVufDB8fHx8MTcxMjcwMjQ0M3ww&ixlib=rb-4.0.3&q=85",
+					"width": 3840,
+					"height": 3840
 				},
-				"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
-				"width": 4000,
-				"height": 6000,
+				"url": "https://images.unsplash.com/photo-1616593918824-4fef16054381?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8aW50ZXJpb3JzfGVufDB8fHx8MTcxMjcwMjQ0M3ww&ixlib=rb-4.0.3&q=85",
+				"width": 3840,
+				"height": 3840,
 				"edit": {
+					"background": "transparent",
 					"zoom": 1,
 					"crop": {
 						"x": 0,
 						"y": 0
-					},
-					"background": "transparent"
+					}
 				},
 				"credits": null,
-				"alt": null,
+				"alt": "brown wooden table with books on top",
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
@@ -143,7 +153,7 @@
 	},
 	{
 		"__TYPE__": "SharedSliceContent",
-		"variation": "textCenter",
+		"variation": "withTwoImages",
 		"primary": {
 			"heading": {
 				"__TYPE__": "StructuredTextContent",
@@ -151,7 +161,7 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Floor"
+							"text": "Shoulder"
 						}
 					}
 				]
@@ -162,21 +172,21 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Veniam amet reprehenderit est ipsum eu deserunt id deserunt nulla ad et laboris. Ut commodo consequat dolor qui sunt velit elit quis. Irure aliquip commodo labore."
+							"text": "Eiusmod aliqua pariatur anim aliquip commodo nisi ea et."
 						}
 					}
 				]
 			},
-			"image_left": {
+			"image": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-					"width": 4024,
-					"height": 4024
+					"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+					"width": 3456,
+					"height": 4320
 				},
-				"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-				"width": 4024,
-				"height": 4024,
+				"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+				"width": 3456,
+				"height": 4320,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -190,21 +200,26 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"image": {
+			"button": {
+				"__TYPE__": "FieldContent",
+				"value": "picture",
+				"type": "Text"
+			},
+			"leftimage": {
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
 					"width": 3212,
 					"height": 3880
 				},
-				"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-				"width": 3212,
-				"height": 3880,
+				"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?rect=0%2C799%2C3212%2C2282&w=380&h=270",
+				"width": 380,
+				"height": 270,
 				"edit": {
 					"zoom": 1,
 					"crop": {
 						"x": 0,
-						"y": 0
+						"y": 799
 					},
 					"background": "transparent"
 				},
@@ -212,6 +227,50 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"rightimage": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+					"width": 3199,
+					"height": 3199
+				},
+				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C463%2C3199%2C2273&w=380&h=270",
+				"width": 380,
+				"height": 270,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 463
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"textcenter": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "titile",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt consectetur cillum consectetur consequat veniam enim mollit pariatur nostrud reprehenderit sint reprehenderit sint tempor. Occaecat minim incididunt et laborum cillum ipsum nisi ullamco consequat nulla aliquip ex occaecat duis non. Magna anim laborum consequat labore esse reprehenderit incididunt mollit veniam nisi.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
 			}
 		},
 		"items": [

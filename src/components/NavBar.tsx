@@ -11,6 +11,10 @@ import {
 	motion,
 } from 'framer-motion'
 import Logo from './Logo'
+import Link from 'next/link'
+import clsx from 'clsx'
+import path from 'path'
+import { usePathname } from 'next/navigation'
 
 const transition = {
 	type: 'spring',
@@ -24,6 +28,7 @@ const transition = {
 export const FlyoutNav = () => {
 	const [scrolled, setScrolled] = useState(false)
 	const { scrollY } = useScroll()
+	const path = usePathname()
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		setScrolled(latest > 250 ? true : false)
@@ -31,16 +36,23 @@ export const FlyoutNav = () => {
 
 	return (
 		<nav
-			className={`fixed top-0 z-50 w-full px-6 text-white 
+			className={`fixed top-0 z-50 w-full px-6 
       transition-all duration-300 ease-out lg:px-12
       ${
 				scrolled
 					? 'bg-secondary py-4 shadow-xl'
-					: 'bg-obdsidian/0 py-6 shadow-none'
+					: 'backdrop-blur-lg py-6 shadow-none'
 			}`}
 		>
-			<div className='mx-auto flex max-w-6xl items-center justify-between'>
-				<Logo />
+			<div
+				className={clsx(
+					'mx-auto flex max-w-6xl items-center justify-between',
+					path === '/' ? 'text-white' : 'text-obsidian'
+				)}
+			>
+				<Link href={'/'} passHref>
+					<Logo color={scrolled ? 'text-white' : 'text-secondary'} />
+				</Link>
 				<div className='hidden gap-6 lg:flex '>
 					<Links />
 				</div>
@@ -116,7 +128,7 @@ const NavLink = ({
 const CTAs = () => {
 	return (
 		<div className='flex items-center gap-3'>
-			<button className='flex items-center gap-2  border-2 border-white px-4 py-2 font-bold text-white transition-colors hover:bg-white hover:text-black'>
+			<button className='flex items-center gap-2  border-2 border-white px-4 py-2 font-bold  transition-colors hover:bg-white hover:text-primary'>
 				<TfiHeadphoneAlt />
 				<a href='tel:0557932200'>Devis Gratuit</a>
 			</button>
